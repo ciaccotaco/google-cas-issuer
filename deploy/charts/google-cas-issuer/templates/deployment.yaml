@@ -49,6 +49,7 @@ spec:
           - --enable-leader-election
           - --log-level={{.Values.app.logLevel}}
           - --metrics-addr=:{{.Values.app.metrics.port}}
+          - --max-concurrent-reconciles={{.Values.app.maxConcurrentReconciles}}
         {{- with .Values.resources }}
         resources:
           {{- toYaml . | nindent 10 }}

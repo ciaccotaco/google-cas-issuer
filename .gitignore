@@ -27,3 +27,9 @@ bin
 
 kubeconfig.yaml
 _artifacts
+
+# Temp for personal development (REMOVE)
+vendor
+Dockerfile
+Dockerfile.local
+ciacco.mk
