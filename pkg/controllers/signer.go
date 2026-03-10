@@ -54,13 +54,8 @@ type GoogleCAS struct {
 	MaxRetryDuration time.Duration
 }
 
-// SetupWithManager keeps existing behavior (uses controller-runtime defaults).
-func (s *GoogleCAS) SetupWithManager(ctx context.Context, mgr ctrl.Manager) error {
-	return s.SetupWithManagerWithOptions(ctx, mgr, controller.Options{})
-}
-
-// SetupWithManagerWithOptions allows configuring controller-runtime options
-func (s *GoogleCAS) SetupWithManagerWithOptions(ctx context.Context, mgr ctrl.Manager, ctrlOpts controller.Options) error {
+// SetupWithManager sets up the controller with the provided controller options
+func (s *GoogleCAS) SetupWithManager(ctx context.Context, mgr ctrl.Manager, ctrlOpts controller.Options) error {
 	const fieldOwner = "cas-issuer.jetstack.io"
 
 	if err := cmapi.AddToScheme(mgr.GetScheme()); err != nil {

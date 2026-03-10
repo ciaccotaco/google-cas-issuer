@@ -111,7 +111,7 @@ func root() error {
 	// Start Controllers
 	if err = (&controllers.GoogleCAS{
 		MaxRetryDuration: 30 * time.Second,
-	}).SetupWithManagerWithOptions(ctx, mgr, ctrlOpts); err != nil {
+	}).SetupWithManager(ctx, mgr, ctrlOpts); err != nil {
 		setupLog.Error(err, "unable to create controller", "controller", "GoogleCASIssuer")
 		return err
 	}
